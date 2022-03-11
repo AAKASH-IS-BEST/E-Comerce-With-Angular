@@ -1,0 +1,38 @@
+<div class="container border border-dark rounded bg-disaable mt-5 w-75 p-3">
+    <h3>Fill the information to create new product...</h3>
+    <form [formGroup]="updateProductForm" (ngSubmit)="onSubmit()">
+        <div class="form-group m-3">
+            <label for="productName">Product Name</label>
+            <input type="text" formControlName="productName" [ngClass]="{ 'is-invalid': submitted && reference['productName'].errors}" class="form-control border border-dark rounded" id="productName" aria-describedby="emailHelp" placeholder="Enter Product Name...">
+            <div *ngIf="submitted && reference['productName'].errors" class="text-danger">
+                <div *ngIf="reference['productName'].errors['required']">
+                    Product Name is required !!!
+                </div>
+            </div>
+        </div>
+        <div class="form-group m-3">
+            <label for="productDescription">Product Description</label>
+            <textarea formControlName="productDescription" [ngClass]="{ 'is-invalid': submitted && reference['productDescription'].errors}" class="form-control" placeholder="Enter Product Description..." id="productDescription" rows="3"></textarea>
+            <div *ngIf="submitted && reference['productDescription'].errors" class="text-danger">
+                <div *ngIf="reference['productDescription'].errors['required']">
+                    Product Description is required !!!
+                </div>
+            </div>
+        </div>
+        <div class="form-group m-3">
+            <label for="productStatus">Product Status</label>
+            <select formControlName="productStatus" name="productStatus" id="productStatus" class="form-control">
+                <option value="Active" class="form-control">---Please select Value---</option>
+                <option value="Active" [selected]="product.productStatus === 'Active'" class="form-control">Active</option>
+                <option value="Inactive" [selected]="product.productStatus === 'Inactive'" class="form-control">Inactive</option>
+            </select>
+        </div>
+        <div class="form-group m-3">
+            <label for="productCreatedAt">Product Created At</label>
+            <input type="date" formControlName="productCreatedAt" class="form-control" id="productCreatedAt" aria-describedby="emailHelp">
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+        </div>
+    </form>
+</div>

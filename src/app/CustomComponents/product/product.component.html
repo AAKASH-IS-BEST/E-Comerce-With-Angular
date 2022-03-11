@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let product of products; index as i">
+            <div class="col-3 m-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://t3.ftcdn.net/jpg/02/94/62/04/360_F_294620414_w1BjP6PlTBfUBrJxFLAT6CylGerWJgy5.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.productName }}</h5>
+                        <p class="card-text">{{ product.productDescription }}</p>
+                        <a href="#" class="btn btn-success">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

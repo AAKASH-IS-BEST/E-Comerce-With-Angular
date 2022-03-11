@@ -1,0 +1,44 @@
+<div class="container mt-5">
+
+    <a routerLink="/add-product" class="btn btn-success">Add Product</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Sr.No</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products; index as i">
+                <th scope="row">{{ i+1 }}</th>
+                <td>{{ product.productName }}</td>
+                <td>{{ product.productDescription }}</td>
+                <td>{{ product.productStatus }}</td>
+                <td><a routerLink="/edit-product" [queryParams]="{ productId: product.productId }" class="btn btn-info text-white">Edit</a></td>
+                <td><a (click)="deleteProduct( product.productId )" class="btn btn-danger">Delete</a></td>
+            </tr>
+            <!-- <tr>
+                <th scope="row">1</th>
+                <td>Test-1</td>
+                <td>Test-1 Description</td>
+                <td>Active</td>
+                <td><a routerLink="/edit-product" class="btn btn-info text-white">Edit</a></td>
+                <td><a href="" class="btn btn-danger">Delete</a></td>
+            </tr> -->
+        </tbody>
+    </table>
+</div>
+
+<!-- <tr *ngFor="let product of products; index as i">
+                <th scope="row">{{ i }}</th>
+                <td>{{ product.productName }}</td>
+                <td>{{ product.productDescription }}</td>
+                <td>{{ product.productStatus }}</td>
+                <td><a routerLink="/edit-product" class="btn btn-info text-white">Edit</a></td>
+                <td><a href="" class="btn btn-danger">Delete</a></td>
+            </tr> -->
