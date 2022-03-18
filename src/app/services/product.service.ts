@@ -2,13 +2,17 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+require("dotenv").config();
 
 @Injectable({
-  providedIn: 'root'
+  	providedIn: 'root'
 })
 export class ProductService implements OnInit {
 
 	private URL: string = "http://localhost:4000/api/v1";
+	private BASE_URL: string = environment.BASE_URL;
+	
 
 	products: any;
 
