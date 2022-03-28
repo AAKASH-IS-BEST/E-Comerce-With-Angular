@@ -23,6 +23,8 @@ import { SubCategoryComponent } from './CustomComponents/sub-category/sub-catego
 import { CategoryComponent } from './CustomComponents/category/category.component';
 import { AboutusComponent } from './CustomComponents/aboutus/aboutus.component';
 import { ContactusComponent } from './CustomComponents/contactus/contactus.component';
+import { ProductDetailsComponent } from './CustomComponents/product-details/product-details.component';
+import { CategoryDetailsComponent } from './CustomComponents/category-details/category-details.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { ContactusComponent } from './CustomComponents/contactus/contactus.compo
     SubCategoryComponent,
     CategoryComponent,
     AboutusComponent,
-    ContactusComponent
+    ContactusComponent,
+    ProductDetailsComponent,
+    CategoryDetailsComponent
   ],
   imports: [
     BrowserModule,
