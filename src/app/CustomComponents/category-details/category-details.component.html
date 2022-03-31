@@ -3,7 +3,7 @@
         <div class="container-fliud">
             <div class="wrapper row p-3">
                 <div class="preview col-md-6">
-                    
+
                     <!-- <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div> -->
                     <img height="100%" width="100%" src="{{ category.categoryPhotos[0].securedURL }}" />
                     <!-- <div class="preview-pic tab-content">
@@ -20,7 +20,7 @@
                         <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
                         <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
                     </ul> -->
-                    
+
                 </div>
                 <div class="details col-md-6">
                     <h3 class="product-title">{{ category.categoryName }}</h3>
@@ -56,4 +56,30 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="container" *ngIf="category.products.length === 0">
+	<h2> No Products exist for this Category !!</h2>
+</div>
+
+<div class="container" *ngIf="category.products.length > 0;">
+	<h2>Products of {{ category.categoryName }}</h2>
+
+	<div class="row">
+		<ng-container *ngFor="let product of category.products; index as i">
+			<div class="col-3 m-3">
+				<!-- <div class="card" style="width: 18rem;"> -->
+				<div class="card">
+					<!-- <img class="card-img-top" src="https://t3.ftcdn.net/jpg/02/94/62/04/360_F_294620414_w1BjP6PlTBfUBrJxFLAT6CylGerWJgy5.jpg" alt="Card image cap"> -->
+					<img class="card-img-top" height="200px" width="200px" src="{{ product.productPhotos[0].securedURL }}" alt="Card image cap">
+					<div class="card-body">
+						<!-- <div class="card-body" style="background-color: red;"> -->
+						<h5 class="card-title">{{ product.productName }}</h5>
+<!--						<p class="card-text">{{ product.productDescription }}</p>-->
+						<a routerLink="/product-details" [queryParams]="{ productId: product.productId, categoryId: product.categoryId }" class="btn btn-success">More details</a>
+					</div>
+				</div>
+			</div>
+		</ng-container>
+	</div>
 </div>

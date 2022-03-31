@@ -1,19 +1,19 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <ng-container *ngFor="let product of products; index as i">
-            <div class="col-3 m-3">
-                <!-- <div class="card" style="width: 18rem;"> -->
-                <div class="card">
-                    <!-- <img class="card-img-top" src="https://t3.ftcdn.net/jpg/02/94/62/04/360_F_294620414_w1BjP6PlTBfUBrJxFLAT6CylGerWJgy5.jpg" alt="Card image cap"> -->
-                    <img class="card-img-top" src="{{ product.productPhotos[0].securedURL }}" alt="Card image cap">
-                    <div class="card-body">
-                    <!-- <div class="card-body" style="background-color: red;"> -->
-                        <h5 class="card-title">{{ product.productName }}</h5>
-                        <p class="card-text">{{ product.productDescription }}</p>
-                        <a routerLink="/product-details" [queryParams]="{ id: product.productId }" class="btn btn-success">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+			<div class="col-3 m-3">
+				<!-- <div class="card" style="width: 18rem;"> -->
+				<div class="card">
+					<!-- <img class="card-img-top" src="https://t3.ftcdn.net/jpg/02/94/62/04/360_F_294620414_w1BjP6PlTBfUBrJxFLAT6CylGerWJgy5.jpg" alt="Card image cap"> -->
+					<img class="card-img-top" height="200px" width="200px" src="{{ product.productPhotos[0].securedURL }}" alt="Card image cap">
+					<div class="card-body">
+						<!-- <div class="card-body" style="background-color: red;"> -->
+						<h5 class="card-title">{{ product.productName }}</h5>
+						<!--						<p class="card-text">{{ product.productDescription }}</p>-->
+						<a routerLink="/product-details" [queryParams]="{ productId: product.productId, categoryId: product.categoryId }" class="btn btn-success">More details</a>
+					</div>
+				</div>
+			</div>
         </ng-container>
     </div>
 </div>

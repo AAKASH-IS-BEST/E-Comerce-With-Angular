@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Toaster
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -25,7 +25,12 @@ import { AboutusComponent } from './CustomComponents/aboutus/aboutus.component';
 import { ContactusComponent } from './CustomComponents/contactus/contactus.component';
 import { ProductDetailsComponent } from './CustomComponents/product-details/product-details.component';
 import { CategoryDetailsComponent } from './CustomComponents/category-details/category-details.component';
-
+import { AddCategoryComponent } from './CustomComponents/add-category/add-category.component';
+// import { MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule } from '@angular/material/tree';
+// import { MatButtonModule } from "@angular/material/button";
+// import { MatIconModule } from "@angular/material/icon";
+// import { FlatTreeControl } from "@angular/cdk/tree";
+// import { SelectionModel } from "@angular/cdk/collections"; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +46,8 @@ import { CategoryDetailsComponent } from './CustomComponents/category-details/ca
     AboutusComponent,
     ContactusComponent,
     ProductDetailsComponent,
-    CategoryDetailsComponent
+    CategoryDetailsComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +57,13 @@ import { CategoryDetailsComponent } from './CustomComponents/category-details/ca
     ToastrModule.forRoot(),
     FontAwesomeModule,
     ReactiveFormsModule,
+    // MatTreeModule,
+    // MatIconModule,
+    // MatButtonModule,
+    // MatTreeFlattener,
+    // MatTreeFlatDataSource,
+    // FlatTreeControl,
+    // SelectionModel,
   ],
   providers: [],
   bootstrap: [AppComponent]

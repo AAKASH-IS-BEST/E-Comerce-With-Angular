@@ -31,15 +31,15 @@ export class EditProductComponent implements OnInit {
 			console.log( params );
 			console.log( params["productId"] );
 			this.productId = params["productId"];
-			
-			this.productService.getProductById( this.productId ).subscribe(( data: any )=>{
-				console.log( data );
-				console.log( data.product.productId );
-				this.product = data.product;
-				console.log("Product: ", this.product );
-				
-				this.setDefault();	
-			});
+
+			// this.productService.getProductById( this.productId ).subscribe(( data: any )=>{
+			// 	console.log( data );
+			// 	console.log( data.product.productId );
+			// 	this.product = data.product;
+			// 	console.log("Product: ", this.product );
+			//
+			// 	this.setDefault();
+			// });
 		});
 
 		// this.updateProductForm = this.formBuilder.group({
@@ -65,9 +65,9 @@ export class EditProductComponent implements OnInit {
 		// 		productDescription: this.product.productDescription,
 		// 		productStatus: this.product.productStatus,
 		// 		productCreatedAt: this.product.productCreatedAt,
-		// 	});	
+		// 	});
 		// } catch (error) {
-			
+
 		// }
 	}
 
@@ -83,7 +83,7 @@ export class EditProductComponent implements OnInit {
 			productCreatedAt: this.product.productCreatedAt,
 		};
 		console.log( product.productCreatedAt );
-		
+
 
 		this.updateProductForm.setValue( product );
 	}
@@ -100,11 +100,11 @@ export class EditProductComponent implements OnInit {
 			return;
 		}
 
-		const product =  { 
-			productName: this.updateProductForm.value.productName, 
-			productDescription: this.updateProductForm.value.productDescription, 
-			productStatus: this.updateProductForm.value.productStatus, 
-			productCreatedAt: this.updateProductForm.value.productCreatedAt 
+		const product =  {
+			productName: this.updateProductForm.value.productName,
+			productDescription: this.updateProductForm.value.productDescription,
+			productStatus: this.updateProductForm.value.productStatus,
+			productCreatedAt: this.updateProductForm.value.productCreatedAt
 		};
 
 		this.updateProduct( product );

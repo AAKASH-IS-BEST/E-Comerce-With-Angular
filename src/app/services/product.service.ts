@@ -11,7 +11,7 @@ export class ProductService implements OnInit {
 
 	private URL: string = "http://localhost:4000/api/v1";
 	// private BASE_URL: string = environment.BASE_URL;
-	
+
 
 	products: any;
 
@@ -25,13 +25,16 @@ export class ProductService implements OnInit {
 		return this.httpClient.get( this.URL + "/products");
 	}
 
-	getProductById( productId: string ){
-		return this.httpClient.get( this.URL + "/product/" + productId );
+	getProductById( productId: string, categoryId: string ){
+		console.log("From Service...");
+		const getProductURL = this.URL + "/product/category?categoryId=" + categoryId + "&productId=" + productId;
+		console.log( "URL==>"+getProductURL );
+		return this.httpClient.get( getProductURL );
 	}
 
 	addProduct( product: any ){
 		console.log("Service: "+product );
-		
+
 		this.httpClient.post( this.URL + "/product", product )
 			.subscribe({ next: data => {
 				console.log("Data saved succesfuly !!");
@@ -47,7 +50,7 @@ export class ProductService implements OnInit {
 
 	updateProduct( product: any, productId: string ){
 		console.log("Service: ", product );
-		
+
 		this.httpClient.put( this.URL + "/product/" + productId, product )
 			.subscribe({ next: data => {
 				console.log("Data Updated succesfuly !!");
